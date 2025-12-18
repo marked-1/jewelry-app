@@ -37,7 +37,7 @@ if uploaded_files:
             st.error("Please enter your API Key in the sidebar.")
         else:
             # Using the fast Flash model for zero-cost/high-efficiency batching
-            model = genai.GenerativeModel('gemini-1.5-flash')
+            model = genai.GenerativeModel('gemini-2.5-flash')
             
             for uploaded_file in uploaded_files:
                 img = Image.open(uploaded_file)
@@ -48,3 +48,4 @@ if uploaded_files:
                     response = model.generate_content([SYSTEM_PROMPT, img])
                     st.markdown(response.text)
                     st.divider()
+                                
